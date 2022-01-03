@@ -1,0 +1,20 @@
+
+<div [hidden]="user">
+  <h1>sign in with yur phn num</h1>
+  <label for="phone">phone number</label>
+  <input type="text" [(ngModel)="phoneNumber.country" class="input" placeholder="1" maxlength="2">
+  <input type="text" [(ngModel)="phoneNumber.area" class="input" placeholder="949" maxlength="3">
+  <input type="text" [(ngModel)="phoneNumber.prefix" class="input" placeholder="555" maxlength="3">
+  <input type="text" [(ngModel)="phoneNumber.line" class="input" placeholder="5555" maxlength="4">
+
+  <button (click) = "sendLoginCode()">SMS text login code</button>
+  <div *ngIf="windowRef.confirmationResult">
+    <label for="code">Enter yur code</label><br>
+    <input type="text" name="code" [(ngModel)]="verificationCode" class="input">
+    <button (click)="verify">verify</button>
+  </div>
+</div>
+<div *ngIf="user">
+  you have done
+  UserId:{{user?.uid}}
+</div>
